@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Évasion - Agence de Voyages</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- En-tête et Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Horizon<span>Évasion</span></a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#accueil">Accueil</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#offres">Offres Spéciales</a>
+                <a href="#services">Services</a>
+                <a href="#temoignages">Avis</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- Section Héro -->
+    <section id="accueil" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="hero-tag">Agence de voyages sur mesure</span>
+            <h1>Explorez le monde sans limites</h1>
+            <p>Découvrez des destinations inoubliables, des paysages à couper le souffle et des séjours adaptés à vos envies.</p>
+            <div class="hero-actions">
+                <a href="#destinations" class="btn btn-primary">Découvrir nos destinations</a>
+                <a href="#contact" class="btn btn-outline">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Destinations avec Filtres, Tri et Recherche -->
+    <section id="destinations" class="destinations section">
+        <div class="container">
+            <h2 class="section-title">Nos Destinations Populaires</h2>
+            <p class="section-subtitle">Choisissez votre prochaine aventure parmi nos sélections exclusives.</p>
+
+            <!-- Barre de contrôle (Recherche + Tri + Filtres) -->
+            <div class="controls">
+                <div class="search-sort-row">
+                    <input type="text" id="searchInput" placeholder="Rechercher une destination (ex: Nosy Be, Kyoto, Isalo...)">
+                    <select id="sortSelect" aria-label="Trier les destinations">
+                        <option value="default">Trier par : Recommandés</option>
+                        <option value="price-asc">Prix : Croissant</option>
+                        <option value="price-desc">Prix : Décroissant</option>
+                    </select>
+                </div>
+                <div class="filter-buttons" id="filterButtons">
+                    <button class="filter-btn active" data-category="all">Toutes</button>
+                    <button class="filter-btn" data-category="plage">Plages</button>
+                    <button class="filter-btn" data-category="culture">Culture</button>
+                    <button class="filter-btn" data-category="nature">Nature & Aventure</button>
+                </div>
+            </div>
+
+            <!-- Grille dynamique générée par JavaScript -->
+            <div class="destinations-grid" id="destinationsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Section Offres Spéciales -->
+    <section id="offres" class="promo-banner section">
+        <div class="container promo-content">
+            <div class="promo-text">
+                <span class="promo-badge">Offre Limitée -20%</span>
+                <h2>Évasion Tropicale à Sainte-Marie</h2>
+                <p>Profitez de 5 jours / 4 nuits tout compris avec observation des baleines, excursions en bateau et hébergement en bord de mer.</p>
+            </div>
+            <div class="promo-action">
+                <div class="promo-price">
+                    <span class="old-price">750 €</span>
+                    <span class="new-price">600 € <small>/ pers.</small></span>
+                </div>
+                <button class="btn btn-accent" onclick="openBookingModal(7)">Profiter de l'offre</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services" class="services section bg-light">
+        <div class="container">
+            <h2 class="section-title">Pourquoi voyager avec nous ?</h2>
+            <p class="section-subtitle">Un accompagnement complet pour voyager l'esprit léger.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#9992;</div>
+                    <h3>Vols & Hébergements</h3>
+                    <p>Des partenariats privilégiés avec les meilleures compagnies aériennes et hôtels de charme.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128506;</div>
+                    <h3>Circuits sur Mesure</h3>
+                    <p>Un itinéraire personnalisé adapté à votre rythme, vos envies et votre budget.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128737;</div>
+                    <h3>Assistance 24h/24</h3>
+                    <p>Une équipe dédiée vous accompagne avant, pendant et après votre voyage.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128176;</div>
+                    <h3>Meilleurs Tarifs Garantis</h3>
+                    <p>Des prix transparents sans frais cachés et des facilités de paiement flexibles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section id="temoignages" class="testimonials section">
+        <div class="container">
+            <h2 class="section-title">Ce que disent nos voyageurs</h2>
+            <p class="section-subtitle">Plus de 2 500 voyageurs satisfaits à travers le monde.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"Organisation impeccable pour notre séjour à Nosy Be ! Tout était prévu dans les moindres détails."</p>
+                    <div class="author">
+                        <strong>Riana Rakoto</strong>
+                        <span>Voyage en famille</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"Le circuit à Kyoto était magique. Notre guide local nous a fait découvrir des endroits hors des sentiers battus."</p>
+                    <div class="author">
+                        <strong>Marc & Sophie</strong>
+                        <span>Circuit Culturel</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"Super expérience dans le parc de l'Isalo. Je recommande vivement Horizon Évasion pour leur professionnalisme."</p>
+                    <div class="author">
+                        <strong>Tojo Andriamanana</strong>
+                        <span>Randonnée & Nature</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact section bg-light">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>Prêt à partir ?</h2>
+                <p>Besoin d'un devis personnalisé ou d'informations supplémentaires ? Écrivez-nous, notre équipe vous répond rapidement !</p>
+                <ul>
+                    <li><strong>Adresse :</strong> Avenue de l'Indépendance, Antananarivo</li>
+                    <li><strong>Téléphone :</strong> +261 34 00 000 00</li>
+                    <li><strong>Email :</strong> contact@horizon-evasion.mg</li>
+                    <li><strong>Horaires :</strong> Lun - Sam : 08h00 - 18h00</li>
+                </ul>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="contactName">Nom complet</label>
+                    <input type="text" id="contactName" required placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Adresse email</label>
+                    <input type="email" id="contactEmail" required placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Votre message</label>
+                    <textarea id="contactMessage" rows="4" required placeholder="Parlez-nous de votre projet de voyage..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Envoyer le message</button>
+                <p class="form-feedback" id="contactFeedback"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <a href="#" class="logo footer-logo">Horizon<span>Évasion</span></a>
+                <p>Votre partenaire de confiance pour des voyages inoubliables à Madagascar et à l'international.</p>
+            </div>
+            <div>
+                <h4>Liens Rapides</h4>
+                <ul class="footer-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#offres">Offres Spéciales</a></li>
+                    <li><a href="#services">Services</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <p>Recevez nos meilleures offres directement par email.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Votre email" required>
+                    <button type="submit" class="btn btn-primary">OK</button>
+                </form>
+                <p id="newsletterFeedback" class="newsletter-feedback"></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Horizon Évasion. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Modale de Réservation -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3 id="modalTitle">Réserver un voyage</h3>
+            <p id="modalPrice" class="modal-price"></p>
+            <form id="bookingForm">
+                <input type="hidden" id="selectedDestination">
+                <div class="form-group">
+                    <label for="travelerName">Nom complet du voyageur</label>
+                    <input type="text" id="travelerName" required placeholder="Ex: Jean Dupont">
+                </div>
+                <div class="form-group">
+                    <label for="travelerEmail">Email de confirmation</label>
+                    <input type="email" id="travelerEmail" required placeholder="Ex: jean@email.com">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="travelDate">Date de départ</label>
+                        <input type="date" id="travelDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="travelersCount">Voyageurs</label>
+                        <input type="number" id="travelersCount" min="1" max="20" value="2" required>
+                    </div>
+                </div>
+                <div class="total-estimate">
+                    Estimation totale : <strong id="totalPrice">0 €</strong>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Confirmer la réservation</button>
+            </form>
+            <div id="bookingConfirmation" class="booking-confirmation hidden"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
